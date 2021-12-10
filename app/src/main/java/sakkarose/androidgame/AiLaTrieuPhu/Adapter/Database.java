@@ -41,7 +41,11 @@ public class Database extends SQLiteOpenHelper
 
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) throws IOException {
         super(context, name, factory, version, errorHandler);
+    }
 
+    public Database(Context context) throws IOException
+    {
+        super(context, DB_NAME, null, 1);
         this.AppContext=context;
 
         boolean dbexist = checkdatabase();
@@ -54,6 +58,7 @@ public class Database extends SQLiteOpenHelper
             System.out.println("Database doesn't exist !");
             createdatabase();
         }
+
     }
 
 
