@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/background1"
+    tools:context="sakkarose.androidgame.AiLaTrieuPhu.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ten_app"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="@dimen/text_side_large"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_content_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_blue_corner_10"
+            android:gravity="center"
+            android:paddingStart="@dimen/padding_frontend_small"
+            android:paddingTop="@dimen/padding_updown_large"
+            android:paddingEnd="@dimen/padding_frontend_small"
+            android:paddingBottom="@dimen/padding_updown_large"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_side_medium" />
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_updown_small"
+            android:paddingBottom="@dimen/padding_updown_small"
+            android:textSize="@dimen/text_side_medium"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_orange_corner_30"
+            android:paddingStart="@dimen/padding_frontend_medium"
+            android:paddingEnd="@dimen/padding_frontend_medium" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_answer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_side_medium"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_updown_small"
+        android:paddingBottom="@dimen/padding_updown_small"
+        android:background="@drawable/bg_blue_corner_30" />
+
+    <TextView
+        android:id="@+id/tv_answer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_side_medium"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_updown_small"
+        android:paddingBottom="@dimen/padding_updown_small"
+        android:background="@drawable/bg_blue_corner_30" />
+
+    <TextView
+        android:id="@+id/tv_answer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_side_medium"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_updown_small"
+        android:paddingBottom="@dimen/padding_updown_small"
+        android:background="@drawable/bg_blue_corner_30" />
+
+    <TextView
+        android:id="@+id/tv_answer4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_side_medium"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_updown_small"
+        android:paddingBottom="@dimen/padding_updown_small"
+        android:background="@drawable/bg_blue_corner_30" />
+
+    <Button
+        android:id="@+id/my_button_id"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:paddingTop="@dimen/padding_updown_medium"
+        android:paddingBottom="@dimen/padding_updown_medium"
+        android:text="@string/add_question"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_side_medium"
+        android:background="@drawable/bg_blue_corner_30"/>
+
+
+</LinearLayout>

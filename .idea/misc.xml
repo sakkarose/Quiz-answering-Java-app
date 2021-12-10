@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_blue_corner_10.xml" value="0.2703125" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_blue_corner_30.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_green_corner_30.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_orange_corner_30.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_red_corner_30.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/ng_blue_corner_10.xml" value="0.1574074074074074" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/layout/activity_main.xml" value="0.136" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/layout/add_question.xml" value="0.264" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/layout/game_screen.xml" value="0.264" />
+        <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/layout/screen.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Downloads/GAME_GIAIDO-20211210T083918Z-001/GAME_GIAIDO/app/src/main/res/layout/activity_main.xml" value="0.17159763313609466" />
+        <entry key="..\:/Users/USER/Downloads/GAME_GIAIDO-20211210T083918Z-001/GAME_GIAIDO/app/src/main/res/layout/add_question.xml" value="0.11979166666666667" />
+        <entry key="..\:/Users/USER/Downloads/GAME_GIAIDO-20211210T083918Z-001/GAME_GIAIDO/app/src/main/res/layout/game_screen.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/USER/Downloads/GAME_GIAIDO-20211210T083918Z-001/GAME_GIAIDO/app/src/main/res/layout/screen.xml" value="0.259375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

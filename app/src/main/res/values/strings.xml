@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ai La Trieu Phu</string>
+    <string name="ten_app">AI LÀ TRIỆU PHÚ</string>
+    <string name="add_question">ADD QUESTION</string>
+    <string name="start">START</string>
+    <string name="exit">EXIT</string>
+</resources>
