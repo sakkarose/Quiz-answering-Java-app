@@ -1,4 +1,4 @@
-package sakkarose.androidgame.AiLaTrieuPhu.Adapter;
+package sakkarose.androidgame.AiLaTrieuPhu.Handler;
 
 import android.content.Context;
 import android.database.Cursor;
