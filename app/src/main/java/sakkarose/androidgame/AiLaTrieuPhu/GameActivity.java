@@ -1,5 +1,6 @@
 package sakkarose.androidgame.AiLaTrieuPhu;
 
+import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -67,6 +68,16 @@ public class GameActivity extends AppCompatActivity
         CDRun = new CDRunnable();
 
         playbgm(R.raw.);
+
+        final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
+        dg.setTitle("");
+        dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
+        dg.setContentView(R.layout.dialog_ready);
+
+
+
+
+
 
 
 
