@@ -2,6 +2,8 @@ package sakkarose.androidgame.AiLaTrieuPhu.Adapter;
 
 import android.app.Activity;
 
+import sakkarose.androidgame.AiLaTrieuPhu.R;
+
 public class ActivityAnimation {
         public void fadeAnimation(Activity a)
         {

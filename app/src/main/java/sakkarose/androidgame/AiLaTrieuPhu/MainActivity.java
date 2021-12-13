@@ -77,6 +77,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        btnthoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+            }
+        });
+
     }
 
     public void playbgm(int type)

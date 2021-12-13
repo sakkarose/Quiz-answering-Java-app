@@ -17,9 +17,9 @@
         android:id="@+id/btn_huongdan"
         android:layout_width="84dp"
         android:layout_height="53dp"
+        android:layout_marginLeft="330dp"
         android:layout_marginTop="@dimen/margin_basex2"
-        android:background="@drawable/btnhd"
-        android:layout_marginLeft="330dp" />
+        android:background="@drawable/btnhd" />
 
     <TextView
         android:layout_width="wrap_content"
