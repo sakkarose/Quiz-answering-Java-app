@@ -80,13 +80,36 @@ public class GameActivity extends AppCompatActivity
         tv.setText("Bạn đã sẵn sàng cùng chơi với chúng tôi?");
         dg.show();
 
-        final Button btnTuChoi = (Button) dg.findViewById(R.id.btn_tuchoi);
+        final Button btnDongY = (Button) dg.findViewById(R.id.btn_dongy);
         final Button btnHuy = (Button) dg.findViewById(R.id.btn_huy);
 
-        btnTuChoi.setOnClickListener(new View.OnClickListener() {
+        btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dg.dismiss();
+                socauhientai++;
+                tablevcoin(socauhientai);
+
+                if (socauhientai<16)
+                {
+                    hienthicauhoi();
+                }
+                if (cauhoihientai == 16)
+                {
+                    mp.stop();
+                    try{
+                        Thread.sleep(1000);
+                        avi.hide();
+
+                        final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
+                        dg.setContentView(R.layout.dialog_ready);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
 
                 
             }
