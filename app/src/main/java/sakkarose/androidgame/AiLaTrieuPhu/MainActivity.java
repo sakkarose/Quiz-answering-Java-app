@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 mp.stop();
-                Intent intent = new Intent(MainActivity.this, PlayActivity.class);
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
                 try
                 {
@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity
         btnhuongdan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(MainActivity.this, R.style.cust_dialog);
+                final Dialog dialog = new Dialog(MainActivity.this, R.style.custom_dialog);
 
-                dialog.setContentView(R.layout.intro_dialog);
+                dialog.setContentView(R.layout.dialog_intro);
                 dialog.setTitle("Hướng dẫn");
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
                 TextView text = (TextView) dialog.findViewById(R.id.textIntro);
-                text.setText(R.string.batdau);
+                text.setText(R.string.bat_dau);
 
                 dialog.show();
 

@@ -4,4 +4,8 @@
     <string name="add_question">ADD QUESTION</string>
     <string name="start">START</string>
     <string name="exit">EXIT</string>
+    <string name="huong_dan">Hướng dẫn</string>
+    <string name="nhap_ten">Nhập tên của bạn</string>
+    <string name="bat_dau">Bạn sẽ phải làm gì? Bạn sẽ phải vượt qua 15 câu hỏi của chương trình. Mỗi câu hỏi bạn có 30 giây để trả lời
+    và sẽ có 3 mốc rất quan trọng là 5, 10 và 15 đầu tiên chúng ta phải vượt qua.</string>
 </resources>
