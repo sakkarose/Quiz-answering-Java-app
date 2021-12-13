@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <ImageButton
         android:id="@+id/btn_huongdan"
@@ -19,7 +19,7 @@
         android:layout_height="53dp"
         android:layout_marginLeft="330dp"
         android:layout_marginTop="@dimen/margin_basex2"
-        android:background="@drawable/btnhd" />
+        android:background="@drawable/btnhd"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,6 +73,4 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_gravity="center"/>
-
-
 </LinearLayout>
