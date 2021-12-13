@@ -13,13 +13,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import sakkarose.androidgame.AiLaTrieuPhu.Adapter.ActivityAnimation;
 import sakkarose.androidgame.AiLaTrieuPhu.R;
 
 public class MainActivity extends AppCompatActivity
 {
-
-
-
     private ImageButton btnhuongdan;
 
     private Button btnbatdau, btnthemcauhoi, btnthoat;
@@ -35,8 +33,6 @@ public class MainActivity extends AppCompatActivity
         btnthoat = (Button) findViewById(R.id.btn_thoat);
 
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,8 +55,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 try
                 {
-                    ActivityAnimator anim = new ActivityAnimator();
-                    anim.unzoomAnimation(MainActivity.this);
+                    ActivityAnimation a = new ActivityAnimation();
+                    a.unzoomAnimation(MainActivity.this);
                 }
                 catch (Exception e) {
                 }
@@ -77,10 +73,7 @@ public class MainActivity extends AppCompatActivity
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
                 TextView text = (TextView) dialog.findViewById(R.id.textIntro);
                 text.setText(R.string.bat_dau);
-
                 dialog.show();
-
-
             }
         });
 
