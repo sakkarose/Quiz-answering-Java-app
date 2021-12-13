@@ -88,10 +88,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View v) {
                 dg.dismiss();
 
-                Dialog dg1 = new Dialog(GameActivity.this, R.style.custom_dialog);
-                dg1.setTitle("Chú ý !");
-                dg1.getWindow().setBackgroundDrawableResource(R.drawable.dg_box2);
-                dg1.setContentView(R.layout.);
+                
             }
         });
 

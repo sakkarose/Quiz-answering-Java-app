@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
     android:background="@drawable/background"
     tools:context="sakkarose.androidgame.AiLaTrieuPhu.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/btn_huongdan"
+        android:layout_width="84dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="@dimen/margin_basex2"
+        android:background="@drawable/hd"
+        android:layout_marginLeft="330dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingHorizontal="8dp"
-        android:text="@string/ten_app"
+        android:text="AI LÀ TRIỆU PHÚ"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="@dimen/text_side_large"
-        android:textStyle="bold" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:paddingTop="100dp"/>
 
     <Button
         android:id="@+id/my_button_id"
@@ -26,33 +39,38 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:padding="16dp"
-        android:paddingTop="@dimen/padding_updown_small"
-        android:paddingBottom="@dimen/padding_updown_small"
-        android:text="@string/start"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Start"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_side_medium" />
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/add_question"
+        android:text="Add Question"
         android:padding="16dp"
         android:layout_marginTop="30dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_side_medium"
+        android:textSize="20sp"
         android:gravity="center"
-        android:paddingTop="@dimen/padding_updown_small"
-        android:paddingBottom="@dimen/padding_updown_small" />
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/exit"
+        android:text="Exit"
         android:padding="16dp"
         android:layout_marginTop="30dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_side_medium"
+        android:textSize="20sp"
         android:gravity="center"
-        android:paddingTop="@dimen/padding_updown_small"
-        android:paddingBottom="@dimen/text_side_medium" />
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"/>
+
+
 </LinearLayout>
