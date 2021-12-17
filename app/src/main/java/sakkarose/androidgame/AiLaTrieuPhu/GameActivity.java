@@ -26,9 +26,9 @@ public class GameActivity extends AppCompatActivity
     private TextView tvreward, tvtime, tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD;
     MediaPlayer mp;
 
-    DrawerLayout drawerLayout;
 
-    NavigationView navi;
+
+
 
     private static CDRunnable CDRun;
     private static Handler CDHandler;
@@ -37,8 +37,10 @@ public class GameActivity extends AppCompatActivity
 
     Dialog dg, dg1;
 
-    String indicator;
-    AVLoadingIndicatorView avi;
+    //DrawerLayout drawerLayout;
+    //NavigationView navi;
+    //String indicator;
+    //AVLoadingIndicatorView avi;
 
     int socauhientai = 0, socauDung = 0, time = 30;
     ArrayList<Question> questionList;
@@ -82,10 +84,13 @@ public class GameActivity extends AppCompatActivity
         }catch (IOException e){
         }
 
+        //tvanswerA.setOnClickListener(this);
+
+
         CDHandler = new Handler();
         CDRun = new CDRunnable();
 
-        playbgm(R.raw.);
+        playbgm(R.raw.ready);
 
         final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
         dg.setTitle("Chú ý !");
@@ -104,7 +109,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View v) {
                 dg.dismiss();
                 socauhientai++;
-                tablevcoin(socauhientai);
+                //tablevreward(socauhientai);
 
                 if (socauhientai<16)
                 {
@@ -115,7 +120,7 @@ public class GameActivity extends AppCompatActivity
                     mp.stop();
                     try{
                         Thread.sleep(1000);
-                        avi.hide();
+                        //avi.hide();
 
                         final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
                         dg.setContentView(R.layout.dialog_ready);
