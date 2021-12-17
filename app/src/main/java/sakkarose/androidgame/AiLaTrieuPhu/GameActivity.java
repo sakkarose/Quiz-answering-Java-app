@@ -3,12 +3,16 @@ package sakkarose.androidgame.AiLaTrieuPhu;
 import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,8 +23,12 @@ import sakkarose.androidgame.AiLaTrieuPhu.Handler.Database;
 public class GameActivity extends AppCompatActivity
 {
 
-    private TextView tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD, ;
+    private TextView tvreward, tvtime, tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD;
     MediaPlayer mp;
+
+    DrawerLayout drawerLayout;
+
+    NavigationView navi;
 
     private static CDRunnable CDRun;
     private static Handler CDHandler;
@@ -29,8 +37,13 @@ public class GameActivity extends AppCompatActivity
 
     Dialog dg, dg1;
 
+    String indicator;
+    AVLoadingIndicatorView avi;
+
     int socauhientai = 0, socauDung = 0, time = 30;
     ArrayList<Question> questionList;
+
+
 
 
 
@@ -43,7 +56,8 @@ public class GameActivity extends AppCompatActivity
         tvanswerC = (TextView) findViewById(R.id.tv_answer3);
         tvanswerD = (TextView) findViewById(R.id.tv_answer4);
 
-        tv
+        tvtime = (TextView) findViewById(R.id.tv_time);
+
 
 
     }
@@ -108,9 +122,8 @@ public class GameActivity extends AppCompatActivity
                         dg.setTitle("Lưu ý!");
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
 
-                        TextView tv_finish = (TextView) dg.findViewById(R.id.textDialog);
-                        
-                        String
+
+
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
