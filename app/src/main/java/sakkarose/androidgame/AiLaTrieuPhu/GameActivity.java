@@ -19,7 +19,7 @@ import sakkarose.androidgame.AiLaTrieuPhu.Handler.Database;
 public class GameActivity extends AppCompatActivity
 {
 
-    private TextView tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD;
+    private TextView tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD, ;
     MediaPlayer mp;
 
     private static CDRunnable CDRun;
@@ -42,6 +42,8 @@ public class GameActivity extends AppCompatActivity
         tvanswerB = (TextView) findViewById(R.id.tv_answer2);
         tvanswerC = (TextView) findViewById(R.id.tv_answer3);
         tvanswerD = (TextView) findViewById(R.id.tv_answer4);
+
+        tv
 
 
     }
@@ -103,7 +105,12 @@ public class GameActivity extends AppCompatActivity
 
                         final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
                         dg.setContentView(R.layout.dialog_ready);
+                        dg.setTitle("Lưu ý!");
+                        dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
 
+                        TextView tv_finish = (TextView) dg.findViewById(R.id.textDialog);
+                        
+                        String
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
