@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@drawable/content_dialog"
+    android:background="@drawable/dialog_content"
     android:layout_margin="2dp"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
@@ -24,31 +24,28 @@
         android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/btn_huy"
             android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:text="@string/huy"
-            android:background="@drawable/answer_choose"
-            android:layout_weight="1"
-            android:textColor="#fff"
-            android:textSize="14sp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="7dp"
-            android:layout_marginLeft="8dp" />
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:textColor="#fff"
+            android:textSize="14sp" />
 
         <Button
-            android:id="@+id/declineButton"
+            android:id="@+id/btn_dongy"
             android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:text="@string/sansang"
-            android:background="@drawable/answer_choose"
-            android:layout_weight="1"
-            android:textSize="14sp"
-            android:textColor="#fff"
+            android:layout_height="48dp"
             android:layout_marginLeft="7dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="8dp"
-        />
+            android:layout_weight="1"
+            android:text="@string/ready"
+            android:textColor="#fff"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -12,11 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.google.android.material.navigation.NavigationView;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +20,7 @@ import sakkarose.androidgame.AiLaTrieuPhu.Adapter.ActivityAnimation;
 import sakkarose.androidgame.AiLaTrieuPhu.Model.Question;
 import sakkarose.androidgame.AiLaTrieuPhu.Handler.Database;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tvtime, tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD;
     MediaPlayer mp;
@@ -40,7 +35,8 @@ public class GameActivity extends AppCompatActivity {
 
     Database appDatabase;
 
-    Dialog dg, dg1;
+    //Dialog dg, dg1;
+    //Unused due to using final only
 
     //Thanh bên cạnh để hiện vị trí và tiền thưởng
     //DrawerLayout drawerLayout;
@@ -109,7 +105,7 @@ public class GameActivity extends AppCompatActivity {
         dg.setContentView(R.layout.dialog_ready);
 
         TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-        tv.setText("Bạn đã sẵn sàng ?");
+        tv.setText("Bạn đã sẵn sàng chưa ?");
         dg.show();
 
         final Button btnDongY = (Button) dg.findViewById(R.id.btn_dongy);
@@ -124,9 +120,34 @@ public class GameActivity extends AppCompatActivity {
                     playbgm(R.raw.start);
                     Thread.sleep(2000);
 
+                    tvquestion.setText(socauhientai);
+                    tvcontentquestion.setText(questionList.get(socauhientai - 1).Question);
+                    tvanswerA.setText(questionList.get(socauhientai - 1).CaseA);
+                    tvanswerB.setText(questionList.get(socauhientai - 1).CaseB);
+                    tvanswerC.setText(questionList.get(socauhientai - 1).CaseC);
+                    tvanswerD.setText(questionList.get(socauhientai - 1).CaseD);
+                    tvtime.setText(time + "");
+                    time();
+                    playbgm_loop(R.raw.first_five_questions);
+                    trueCase();
+
 
                 } catch (Exception e) {
                 }
+            }
+        });
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goMainAct();
+            }
+        });
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goMainAct();
             }
         });
     }
@@ -483,7 +504,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onResume()
     {
-        if(isRunning == true) {
+        if(isRunning) {
             CDRun.run();
         }
         super.onResume();
