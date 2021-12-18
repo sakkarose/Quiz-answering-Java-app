@@ -175,15 +175,19 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         {
                             case R.id.tv_answer1:
                                 playbgm(R.raw.true_answer_a);
+                                tvanswerA.setBackgroundResource(R.drawable.bg_green_corner_30);
                                 break;
                             case R.id.tv_answer2:
                                 playbgm(R.raw.true_answer_b);
+                                tvanswerB.setBackgroundResource(R.drawable.bg_green_corner_30);
                                 break;
                             case R.id.tv_answer3:
                                 playbgm(R.raw.true_answer_c);
+                                tvanswerC.setBackgroundResource(R.drawable.bg_green_corner_30);
                                 break;
                             case R.id.tv_answer4:
                                 playbgm(R.raw.true_answer_d);
+                                tvanswerD.setBackgroundResource(R.drawable.bg_green_corner_30);
                                 break;
                         }
                         socauhientai++;
@@ -236,15 +240,19 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         {
                             case R.id.tv_answer1:
                                 playbgm(R.raw.lose_answer_a);
+                                wrongCaseAnim(tvanswerA);
                                 break;
                             case R.id.tv_answer2:
                                 playbgm(R.raw.lose_answer_b);
+                                wrongCaseAnim(tvanswerB);
                                 break;
                             case R.id.tv_answer3:
                                 playbgm(R.raw.lose_answer_c);
+                                wrongCaseAnim(tvanswerC);
                                 break;
                             case R.id.tv_answer4:
                                 playbgm(R.raw.lose_answer_d);
+                                wrongCaseAnim(tvanswerD);
                                 break;
                         }
                         try{
@@ -295,6 +303,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         tvanswerB.setText("");
         tvanswerC.setText("");
         tvanswerD.setText("");
+        tvanswerA.setBackgroundResource(R.drawable.bg_blue_corner_30);
+        tvanswerB.setBackgroundResource(R.drawable.bg_blue_corner_30);
+        tvanswerC.setBackgroundResource(R.drawable.bg_blue_corner_30);
+        tvanswerD.setBackgroundResource(R.drawable.bg_blue_corner_30);
+
     }
 
     public void showQuestion()
@@ -312,6 +325,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         time = 30;
         tvtime.setText(time + "");
         time();
+    }
+
+    public void wrongCaseAnim(TextView tv)
+    {
+        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
+        tv.setBackgroundResource(R.drawable.bg_blue_corner_30);
+        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
+        tv.setBackgroundResource(R.drawable.bg_blue_corner_30);
+        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
     }
 
     public void trueCase()
@@ -363,18 +385,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             {
                 case R.id.tv_answer1:
                     playbgm(R.raw.lose_answer_a);
+                    wrongCaseAnim(tvanswerA);
                     break;
 
                 case R.id.tv_answer2:
                     playbgm(R.raw.lose_answer_b);
+                    wrongCaseAnim(tvanswerB);
                     break;
 
                 case R.id.tv_answer3:
                     playbgm(R.raw.lose_answer_c);
+                    wrongCaseAnim(tvanswerC);
                     break;
 
                 case R.id.tv_answer4:
                     playbgm(R.raw.lose_answer_d);
+                    wrongCaseAnim(tvanswerD);
                     break;
             }
             try{

@@ -71,9 +71,26 @@ public class MainActivity extends AppCompatActivity
                 dialog.setContentView(R.layout.dialog_intro);
                 dialog.setTitle("Hướng dẫn");
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
-                TextView text = (TextView) dialog.findViewById(R.id.textIntro);
+                TextView text = (TextView) dialog.findViewById(R.id.tv_intro);
                 text.setText(R.string.bat_dau);
                 dialog.show();
+            }
+        });
+
+        btnthemcauhoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.stop();
+                Intent intent = new Intent(MainActivity.this, AddQuestionActivity.class);
+                startActivity(intent);
+
+                try
+                {
+                    ActivityAnimation a = new ActivityAnimation();
+                    a.unzoomAnimation(MainActivity.this);
+                }
+                catch (Exception e) {
+                }
             }
         });
 

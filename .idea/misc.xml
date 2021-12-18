@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/bg_blue_corner_10.xml" value="0.2755208333333333" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/bg_blue_corner_30.xml" value="0.2755208333333333" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/bg_green_corner_30.xml" value="0.15" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/bg_orange_corner_30.xml" value="0.15" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/bg_red_corner_30.xml" value="0.15" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/dialog_box.xml" value="0.26145833333333335" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/dialog_content.xml" value="0.1" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_add_question.xml" value="0.259375" />

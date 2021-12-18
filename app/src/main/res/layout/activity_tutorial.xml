@@ -27,7 +27,7 @@
         android:paddingTop="40dp"
         android:paddingEnd="10dp"
         android:paddingBottom="40dp"
-        android:text="Chọn một trong bốn đáp án mà bạn cho là đúng nhất."
+        android:text=""
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"/>
