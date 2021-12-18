@@ -11,4 +11,6 @@
     <color name="colorPri">#3F51B5</color>
     <color name="colorPriDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="text">#4A148C</color>
 </resources>

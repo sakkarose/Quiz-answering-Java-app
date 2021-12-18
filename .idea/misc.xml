@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/dialog_box.xml" value="0.26145833333333335" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/drawable/dialog_content.xml" value="0.1" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_add_question.xml" value="0.259375" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_game.xml" value="0.259375" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_insertname.xml" value="0.259375" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/activity_tutorial.xml" value="0.259375" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/dialog_box.xml" value="0.2453125" />
+        <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/dialog_finish.xml" value="0.264" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/dialog_intro.xml" value="0.259375" />
         <entry key="..\:/GitHub/Ai_La_Trieu_Phu/app/src/main/res/layout/dialog_ready.xml" value="0.259375" />
         <entry key="..\:/Users/Ngan Nguyen/AndroidStudioProjects/GAME_GIAIDO/app/src/main/res/drawable/bg_blue_corner_10.xml" value="0.2703125" />
