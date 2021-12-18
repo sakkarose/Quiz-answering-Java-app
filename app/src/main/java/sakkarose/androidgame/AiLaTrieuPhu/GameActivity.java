@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,8 @@ public class GameActivity extends AppCompatActivity {
     private TextView tvtime, tvcontentquestion, tvquestion, tvanswerA, tvanswerB, tvanswerC, tvanswerD;
     MediaPlayer mp;
 
+    private ImageView ivstop;
+
 
 
     private static CDRunnable CDRun;
@@ -45,19 +48,24 @@ public class GameActivity extends AppCompatActivity {
     //String indicator;
     //AVLoadingIndicatorView avi;
 
-    int socauhientai = 0, socauDung = 0, time = 30, trueCase, idTC;
+    int socauhientai = 0, time = 30, trueCase, idTC;
+    //int socauDung = 0;
+
     ArrayList<Question> questionList;
 
 
     private void findViewsByIds() {
         tvcontentquestion = (TextView) findViewById(R.id.tv_content_question);
         tvquestion = (TextView) findViewById(R.id.tv_question);
+
         tvanswerA = (TextView) findViewById(R.id.tv_answer1);
         tvanswerB = (TextView) findViewById(R.id.tv_answer2);
         tvanswerC = (TextView) findViewById(R.id.tv_answer3);
         tvanswerD = (TextView) findViewById(R.id.tv_answer4);
 
         tvtime = (TextView) findViewById(R.id.tv_time);
+
+        ivstop = (ImageView) findViewById(R.id.iv_stop);
 
 
     }
@@ -67,6 +75,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //set layout full man hinh vi khac nhau dpi giua cac may
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -81,7 +90,12 @@ public class GameActivity extends AppCompatActivity {
         } catch (IOException e) {
         }
 
-        //tvanswerA.setOnClickListener(this);
+        tvanswerA.setOnClickListener(this);
+        tvanswerB.setOnClickListener(this);
+        tvanswerC.setOnClickListener(this);
+        tvanswerD.setOnClickListener(this);
+        ivstop.setOnClickListener(this);
+
 
 
         CDHandler = new Handler();
@@ -117,6 +131,151 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onClick(final View v)
+    {
+        if(v.getId() == R.id.tv_answer1 || v.getId() == R.id.tv_answer2 || v.getId() == R.id.tv_answer3 || v.getId() == R.id.tv_answer4)
+        {
+            CDHandler.removeCallbacks(CDRun);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+
+            //Đã chọn đáp án
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(v.getId() == trueCase)
+                    {
+                        switch (trueCase)
+                        {
+                            case R.id.tv_answer1:
+                                playbgm(R.raw.true_answer_a);
+                                break;
+                            case R.id.tv_answer2:
+                                playbgm(R.raw.true_answer_b);
+                                break;
+                            case R.id.tv_answer3:
+                                playbgm(R.raw.true_answer_c);
+                                break;
+                            case R.id.tv_answer4:
+                                playbgm(R.raw.true_answer_d);
+                                break;
+                        }
+                        socauhientai++;
+                        if(socauhientai < 16)
+                        {
+                            showQuestion();
+                        }
+
+                        if(socauhientai == 16)
+                        {
+                            mp.stop();
+                            try{
+                                Thread.sleep(2000);
+
+                                final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
+                                dg.setContentView(R.layout.dialog_finish);
+                                dg.setTitle("!!! Chúc mừng !!!");
+                                dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
+
+                                TextView tv = (TextView) dg.findViewById(R.id.textDialog);
+                                TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
+                                tv.setText("Bạn đã trở thành ai là triệu phú");
+                                tv_scd.setText("16");
+                                dg.setCancelable(false);
+
+                                dg.show();
+
+                                Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
+                                btn_ok.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dg.dismiss();
+                                        goMainAct();
+                                    }
+                                });
+
+                                resetTV();
+
+                            } catch (InterruptedException e)
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    //Chọn sai đáp án
+                    else {
+                        mp.stop();
+                        switch (trueCase)
+                        {
+                            case R.id.tv_answer1:
+                                playbgm(R.raw.lose_answer_a);
+                                break;
+                            case R.id.tv_answer2:
+                                playbgm(R.raw.lose_answer_b);
+                                break;
+                            case R.id.tv_answer3:
+                                playbgm(R.raw.lose_answer_c);
+                                break;
+                            case R.id.tv_answer4:
+                                playbgm(R.raw.lose_answer_d);
+                                break;
+                        }
+                        try{
+                            Thread.sleep(2000);
+                            final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
+                            dg.setContentView(R.layout.dialog_finish);
+                            dg.setTitle("Thật tiếc !!!");
+                            dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
+
+                            TextView tv = (TextView) dg.findViewById(R.id.textDialog);
+                            TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
+                            tv.setText("Bạn đã thua.");
+                            tv_scd.setText(socauhientai - 1);
+                            dg.setCancelable(false);
+
+                            dg.show();
+
+                            Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
+                            btn_ok.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dg.dismiss();
+                                    goMainAct();
+                                }
+                            });
+
+                            //resetTV();
+                        } catch (InterruptedException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }, 4000);
+        }
+
+        //Xin dừng cuộc chơi khi click ảnh stop
+        if (v.getId() == R.id.iv_stop)
+        {
+            stop();
+        }
+    }
+
+    public void resetTV()
+    {
+        tvquestion.setText("");
+        tvanswerA.setText("");
+        tvanswerB.setText("");
+        tvanswerC.setText("");
+        tvanswerD.setText("");
     }
 
     public void showQuestion()
