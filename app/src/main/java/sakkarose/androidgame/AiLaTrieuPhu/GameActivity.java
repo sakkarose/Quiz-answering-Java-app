@@ -147,22 +147,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     switch (trueCase)
                     {
                         case R.id.tv_answer1:
-                            mp.stop();
                             tvanswerA.setBackgroundResource(R.drawable.bg_green_corner_30);
                             playbgm(R.raw.true_answer_a);
                             break;
                         case R.id.tv_answer2:
-                            mp.stop();
                             tvanswerB.setBackgroundResource(R.drawable.bg_green_corner_30);
                             playbgm(R.raw.true_answer_b);
                             break;
                         case R.id.tv_answer3:
-                            mp.stop();
                             tvanswerC.setBackgroundResource(R.drawable.bg_green_corner_30);
                             playbgm(R.raw.true_answer_c);
                             break;
                         case R.id.tv_answer4:
-                            mp.stop();
                             tvanswerD.setBackgroundResource(R.drawable.bg_green_corner_30);
                             playbgm(R.raw.true_answer_d);
                             break;
@@ -282,6 +278,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     public void showQuestion()
     {
+        resetTV();
         trueCase();
         //playbgm(BGM_Question[socauhientai - 1]);
         tvquestion.setText(String.valueOf(socauhientai));
@@ -295,15 +292,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         time = 30;
         tvtime.setText(time + "");
         time();
-    }
-
-    public void wrongCaseAnim(TextView tv)
-    {
-        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
-        tv.setBackgroundResource(R.drawable.bg_blue_corner_30);
-        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
-        tv.setBackgroundResource(R.drawable.bg_blue_corner_30);
-        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
     }
 
     public void trueCase()
@@ -448,6 +436,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
             btn_ok.setOnClickListener(v -> {
                 dg.dismiss();
+                mp.stop();
                 goMainAct();
             });
 
@@ -465,6 +454,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mp = MediaPlayer.create(this, type);
         mp.setLooping(true);
         mp.start();
+    }
+
+    public void wrongCaseAnim(TextView tv)
+    {
+        tv.setBackgroundResource(R.drawable.bg_red_corner_30);
     }
 
     public void goMainAct()
@@ -514,6 +508,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mp.stop();
         super.onStop();
     }
+
 }
 
 

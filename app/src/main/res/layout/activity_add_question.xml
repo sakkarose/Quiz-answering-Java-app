@@ -17,7 +17,7 @@
         android:clickable="true"
         android:background="@drawable/back"
         android:focusable="true"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,UsingOnClickInXml" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -124,7 +124,8 @@
         android:text="@string/add_question"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_side_medium"
-        android:background="@drawable/bg_blue_corner_30"/>
+        android:background="@drawable/bg_blue_corner_30"
+        tools:ignore="UsingOnClickInXml" />
 
 
 </LinearLayout>

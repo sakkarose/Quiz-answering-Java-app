@@ -61,14 +61,15 @@ public class AddQuestionActivity extends AppCompatActivity
     }
 
     //OnClick của nút back
-    public void Back2MainActivity(View v)
+    public void Back2MainActivity(View view)
     {
+        finish();
         ActivityAnimation a = new ActivityAnimation();
         a.fadeAnimation(AddQuestionActivity.this);
     }
 
     //OnClick của nút Add Question
-    public void addquestion(View v)
+    public void addquestion(View view)
     {
         String qs, ca, cb, cc, cd, temp;
         int tc = 0, id = 0;
