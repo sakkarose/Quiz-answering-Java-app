@@ -34,9 +34,9 @@ public class Database extends SQLiteOpenHelper
     public static final String TABLE_CASE_D = "CaseD";
     public static final String TABLE_TRUE_CASE = "TrueCase";
 
-    private static String DB_NAME = "Question.sqlite";
+    private static final String DB_NAME = "Question.sqlite";
     public SQLiteDatabase appDatabase;
-    private String DB_PATH = "data/data/sakkarose.androidgame.AiLaTrieuPhu/databases/";
+    private final String DB_PATH = "data/data/sakkarose.androidgame.AiLaTrieuPhu/databases/";
 
 
 
@@ -72,7 +72,6 @@ public class Database extends SQLiteOpenHelper
         boolean dbexist = checkdatabase();
         if (dbexist)
         {
-            //System.out.println("Database exists");
             opendatabase();
         } else
         {
@@ -122,16 +121,12 @@ public class Database extends SQLiteOpenHelper
 
     private void copydatabase() throws IOException
     {
-        //Open your local db as the input stream
         InputStream myinput = AppContext.getAssets().open(DB_NAME);
 
-        // Path to the just created empty db
         String outfilename = DB_PATH + DB_NAME;
 
-        //Open the empty db as the output stream
         OutputStream myoutput = new FileOutputStream("/data/data/sakkarose.androidgame.AiLaTrieuPhu/databases/Question.sqlite");
 
-        //Move bytes from inputfile to outputfile
         byte[] buffer = new byte[1024];
         int length;
         while ((length = myinput.read(buffer))>0)
@@ -139,7 +134,6 @@ public class Database extends SQLiteOpenHelper
             myoutput.write(buffer,0,length);
         }
 
-        //Close the streams
         myoutput.flush();
         myoutput.close();
         myinput.close();
@@ -147,7 +141,6 @@ public class Database extends SQLiteOpenHelper
 
     public void opendatabase() throws SQLException
     {
-        //Open the database
         String mypath = DB_PATH + DB_NAME;
         appDatabase = SQLiteDatabase.openDatabase(mypath, null, SQLiteDatabase.OPEN_READWRITE);
     }
