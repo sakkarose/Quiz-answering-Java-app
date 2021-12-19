@@ -265,7 +265,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             TextView tv = (TextView) dg.findViewById(R.id.textDialog);
                             TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
                             tv.setText("Bạn đã thua.");
-                            tv_scd.setText(socauhientai - 1);
+                            tv_scd.setText(String.valueOf(socauhientai - 1));
                             dg.setCancelable(false);
 
                             dg.show();
@@ -412,7 +412,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 TextView tv = (TextView) dg.findViewById(R.id.textDialog);
                 TextView tv_caudung = (TextView) dg.findViewById(R.id.textDialog_sc);
                 tv.setText("Khá đáng tiếc ! Bạn đã thua.");
-                tv_caudung.setText(socauhientai - 1);
+                tv_caudung.setText(String.valueOf(socauhientai - 1));
                 dg.setCancelable(true);
                 dg.show();
 
@@ -475,7 +475,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             TextView tv_socaudung = (TextView) dg.findViewById(R.id.textDialog_socaudung);
 
             tv.setText("Bạn đã dừng cuộc chơi ! Cảm ơn bạn đã tham gia.");
-            tv_socaudung.setText(socauhientai - 1);
+            tv_socaudung.setText(String.valueOf(socauhientai - 1));
             dg.setCancelable(false);
             dg.show();
 
