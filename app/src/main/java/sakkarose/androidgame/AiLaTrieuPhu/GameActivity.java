@@ -167,6 +167,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     socauhientai++;
                     if(socauhientai < 16)
                     {
+                        resetTV();
                         showQuestion();
                     }
 
@@ -189,14 +190,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                             dg.show();
 
+                            resetTV();
+
                             Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
                             btn_ok.setOnClickListener(v1 -> {
                                 dg.dismiss();
                                 goMainAct();
                             });
-
-                            resetTV();
-
                         } catch (InterruptedException e)
                         {
                             e.printStackTrace();
