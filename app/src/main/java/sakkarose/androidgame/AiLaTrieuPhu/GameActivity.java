@@ -29,6 +29,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+
     private static CDRunnable CDRun;
     private static Handler CDHandler;
     boolean isRunning = false;
@@ -45,6 +46,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //AVLoadingIndicatorView avi;
 
     int socauhientai = 0, time = 30, trueCase, idTC;
+
+
+    int socaudung = socauhientai - 1;
     //int socauDung = 0;
 
     ArrayList<Question> questionList;
@@ -120,7 +124,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     playbgm(R.raw.start);
                     Thread.sleep(2000);
 
-                    tvquestion.setText(socauhientai);
+                    tvquestion.setText(String.valueOf(socauhientai));
                     tvcontentquestion.setText(questionList.get(socauhientai - 1).Question);
                     tvanswerA.setText(questionList.get(socauhientai - 1).CaseA);
                     tvanswerB.setText(questionList.get(socauhientai - 1).CaseB);
@@ -134,13 +138,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                 } catch (Exception e) {
                 }
-            }
-        });
-
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goMainAct();
             }
         });
 
@@ -265,7 +262,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             TextView tv = (TextView) dg.findViewById(R.id.textDialog);
                             TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
                             tv.setText("Bạn đã thua.");
-                            tv_scd.setText(String.valueOf(socauhientai - 1));
+                            tv_scd.setText(String.valueOf(socaudung));
                             dg.setCancelable(false);
 
                             dg.show();
@@ -314,7 +311,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     {
         trueCase();
         //playbgm(BGM_Question[socauhientai - 1]);
-        tvquestion.setText(socauhientai);
+        tvquestion.setText(String.valueOf(socauhientai));
         tvcontentquestion.setText(questionList.get(socauhientai - 1).Question);
 
         tvanswerA.setText(questionList.get(socauhientai - 1).CaseA);
@@ -404,7 +401,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     break;
             }
             try{
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 final Dialog dg = new Dialog(GameActivity.this);
                 dg.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dg.setContentView(R.layout.dialog_finish);
@@ -412,7 +409,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 TextView tv = (TextView) dg.findViewById(R.id.textDialog);
                 TextView tv_caudung = (TextView) dg.findViewById(R.id.textDialog_sc);
                 tv.setText("Khá đáng tiếc ! Bạn đã thua.");
-                tv_caudung.setText(String.valueOf(socauhientai - 1));
+                tv_caudung.setText(String.valueOf(socaudung));
                 dg.setCancelable(true);
                 dg.show();
 
@@ -475,7 +472,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             TextView tv_socaudung = (TextView) dg.findViewById(R.id.textDialog_socaudung);
 
             tv.setText("Bạn đã dừng cuộc chơi ! Cảm ơn bạn đã tham gia.");
-            tv_socaudung.setText(String.valueOf(socauhientai - 1));
+            tv_socaudung.setText(String.valueOf(socaudung));
             dg.setCancelable(false);
             dg.show();
 
