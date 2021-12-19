@@ -1,5 +1,6 @@
 package sakkarose.androidgame.AiLaTrieuPhu.Handler;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
@@ -41,6 +42,26 @@ public class Database extends SQLiteOpenHelper
 
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) throws IOException {
         super(context, name, factory, version, errorHandler);
+    }
+
+    public void addQuestion(Question q)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String nullColumnHack = null;
+        ContentValues values = new ContentValues();
+        if(q.getID() != -1)
+        {
+            values.put(TABLE_ID, q.getID());
+            values.put(TABLE_QUESTION, q.getQuestion());
+            values.put(TABLE_CASE_A, q.getCaseA());
+            values.put(TABLE_CASE_B, q.getCaseB());
+            values.put(TABLE_CASE_C, q.getCaseC());
+            values.put(TABLE_CASE_D, q.getCaseD());
+            values.put(TABLE_TRUE_CASE, q.getTrueCase());
+
+            db.insert(TABLE_NAME,nullColumnHack,values);
+
+        }
     }
 
     public Database(Context context) throws IOException
