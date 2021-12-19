@@ -21,14 +21,13 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/et_content_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/bg_blue_corner_10"
             android:gravity="center"
             android:paddingStart="@dimen/padding_frontend_small"
@@ -115,7 +114,7 @@
         android:id="@+id/btn_submit"
         android:onClick="addquestion"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:padding="16dp"
@@ -123,7 +122,7 @@
         android:paddingBottom="@dimen/padding_updown_medium"
         android:text="@string/add_question"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_side_medium"
+        android:textSize="20sp"
         android:background="@drawable/bg_blue_corner_30"
         tools:ignore="UsingOnClickInXml" />
 
