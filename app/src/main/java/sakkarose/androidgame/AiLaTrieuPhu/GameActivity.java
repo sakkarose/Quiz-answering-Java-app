@@ -272,7 +272,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         tvanswerB.setBackgroundResource(R.drawable.bg_blue_corner_30);
         tvanswerC.setBackgroundResource(R.drawable.bg_blue_corner_30);
         tvanswerD.setBackgroundResource(R.drawable.bg_blue_corner_30);
+    }
 
+    public void resetTV1()
+    {
+        tvquestion.setText("");
+        tvanswerA.setText("");
+        tvanswerB.setText("");
+        tvanswerC.setText("");
+        tvanswerD.setText("");
     }
 
     @SuppressLint("SetTextI18n")
@@ -367,9 +375,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 final Dialog dg = new Dialog(GameActivity.this);
                 dg.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dg.setContentView(R.layout.dialog_finish);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
 
                 TextView tv = dg.findViewById(R.id.textDialog);
-                TextView tv_caudung = dg.findViewById(R.id.textDialog_sc);
+                TextView tv_caudung = dg.findViewById(R.id.textDialog_socaudung);
                 tv.setText(R.string.ban_da_thua);
                 tv_caudung.setText(String.valueOf(socauhientai - 1));
                 dg.setCancelable(true);
@@ -380,11 +389,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     dg.dismiss();
                     goMainAct();
                 });
-                tvquestion.setText("");
-                tvanswerA.setText("");
-                tvanswerB.setText("");
-                tvanswerC.setText("");
-                tvanswerD.setText("");
+                resetTV1();
             } catch (InterruptedException e)
             {
                 e.printStackTrace();
