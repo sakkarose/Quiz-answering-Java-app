@@ -15,7 +15,9 @@
         android:layout_height="42dp"
         android:onClick="Back2MainActivity"
         android:clickable="true"
-        android:background="@drawable/back" />
+        android:background="@drawable/back"
+        android:focusable="true"
+        tools:ignore="ContentDescription" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -34,7 +36,8 @@
             android:paddingEnd="@dimen/padding_frontend_small"
             android:paddingBottom="@dimen/padding_updown_large"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_side_medium" />
+            android:textSize="@dimen/text_side_medium"
+            tools:ignore="Autofill,LabelFor,TextFields" />
     </RelativeLayout>
 
     <EditText
@@ -47,7 +50,8 @@
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
-        android:background="@drawable/bg_blue_corner_30" />
+        android:background="@drawable/bg_blue_corner_30"
+        tools:ignore="Autofill,LabelFor,TextFields"  />
 
     <EditText
         android:id="@+id/et_answer2"
@@ -59,7 +63,8 @@
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
-        android:background="@drawable/bg_blue_corner_30" />
+        android:background="@drawable/bg_blue_corner_30"
+        tools:ignore="Autofill,LabelFor,TextFields"  />
 
     <EditText
         android:id="@+id/et_answer3"
@@ -71,7 +76,8 @@
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
-        android:background="@drawable/bg_blue_corner_30" />
+        android:background="@drawable/bg_blue_corner_30"
+        tools:ignore="Autofill,LabelFor,TextFields"  />
 
     <EditText
         android:id="@+id/et_answer4"
@@ -83,7 +89,8 @@
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
-        android:background="@drawable/bg_blue_corner_30" />
+        android:background="@drawable/bg_blue_corner_30"
+        tools:ignore="Autofill,LabelFor,TextFields"  />
 
 
     <TextView
@@ -93,14 +100,16 @@
         android:layout_marginTop="10dp"
         android:text="@string/dap_an"
         android:textColor="@color/white"
-        android:layout_gravity="left"
-        android:textSize="25dp" />
+        android:layout_gravity="start"
+        android:textSize="25sp"
+        android:layout_marginStart="0dp" />
 
     <EditText
         android:id="@+id/et_truecase"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        tools:ignore="Autofill,LabelFor,TextFields" />
 
     <Button
         android:id="@+id/btn_submit"

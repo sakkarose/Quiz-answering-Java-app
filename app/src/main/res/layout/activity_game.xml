@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="left"
+    android:gravity="start"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="sakkarose.androidgame.AiLaTrieuPhu.MainActivity">
@@ -14,14 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <ImageView
         android:id="@+id/iv_stop"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/stop" />
+        android:background="@drawable/stop"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +31,8 @@
         android:text="@string/ten_app"
         android:textColor="@android:color/holo_red_light"
         android:textSize="@dimen/text_side_large"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginStart="73dp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -78,6 +80,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_blue_corner_30"
         android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
@@ -91,6 +94,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_blue_corner_30"
         android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
@@ -104,6 +108,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_blue_corner_30"
         android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"
@@ -117,6 +122,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_blue_corner_30"
         android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:paddingTop="@dimen/padding_updown_small"
         android:paddingBottom="@dimen/padding_updown_small"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/dialog_content"
     android:layout_margin="2dp"
@@ -33,7 +34,10 @@
             android:layout_weight="1"
             android:text="@string/cancel"
             android:textColor="#fff"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/btn_dongy"
@@ -45,7 +49,10 @@
             android:layout_weight="1"
             android:text="@string/ready"
             android:textColor="#fff"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="8dp"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
 </LinearLayout>

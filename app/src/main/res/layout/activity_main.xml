@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +18,9 @@
         android:layout_height="53dp"
         android:layout_marginLeft="330dp"
         android:layout_marginTop="@dimen/margin_basex2"
-        android:background="@drawable/btnhd"/>
+        android:background="@drawable/btnhd"
+        android:layout_marginStart="330dp"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"

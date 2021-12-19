@@ -36,7 +36,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     int socauhientai = 0, time = 30, trueCase, idTC;
 
-    int socaudung = socauhientai - 1;
 
     ArrayList<Question> questionList;
 
@@ -148,26 +147,29 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     switch (trueCase)
                     {
                         case R.id.tv_answer1:
-                            playbgm(R.raw.true_answer_a);
+                            mp.stop();
                             tvanswerA.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            playbgm(R.raw.true_answer_a);
                             break;
                         case R.id.tv_answer2:
-                            playbgm(R.raw.true_answer_b);
+                            mp.stop();
                             tvanswerB.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            playbgm(R.raw.true_answer_b);
                             break;
                         case R.id.tv_answer3:
-                            playbgm(R.raw.true_answer_c);
+                            mp.stop();
                             tvanswerC.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            playbgm(R.raw.true_answer_c);
                             break;
                         case R.id.tv_answer4:
-                            playbgm(R.raw.true_answer_d);
+                            mp.stop();
                             tvanswerD.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            playbgm(R.raw.true_answer_d);
                             break;
                     }
                     socauhientai++;
                     if(socauhientai < 16)
                     {
-                        resetTV();
                         showQuestion();
                     }
 
@@ -236,7 +238,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         TextView tv = dg.findViewById(R.id.textDialog);
                         TextView tv_scd = dg.findViewById(R.id.textDialog_socaudung);
                         tv.setText(R.string.ban_da_thua2);
-                        tv_scd.setText(String.valueOf(socaudung));
+                        tv_scd.setText(String.valueOf(socauhientai - 1));
                         dg.setCancelable(false);
 
                         dg.show();
@@ -381,7 +383,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 TextView tv = dg.findViewById(R.id.textDialog);
                 TextView tv_caudung = dg.findViewById(R.id.textDialog_sc);
                 tv.setText(R.string.ban_da_thua);
-                tv_caudung.setText(String.valueOf(socaudung));
+                tv_caudung.setText(String.valueOf(socauhientai - 1));
                 dg.setCancelable(true);
                 dg.show();
 
@@ -439,7 +441,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             TextView tv_socaudung = dg.findViewById(R.id.textDialog_socaudung);
 
             tv.setText(R.string.dung_cuoc_choi);
-            tv_socaudung.setText(String.valueOf(socaudung));
+            tv_socaudung.setText(String.valueOf(socauhientai - 1));
             dg.setCancelable(false);
             dg.show();
 

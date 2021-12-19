@@ -26,9 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
-            android:text="Số câu bạn đã trả lời đúng : "
+            android:text="@string/so_cau_tl_dung"
             android:layout_marginRight="10dp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:layout_marginEnd="10dp" />
 
         <TextView
             android:id="@+id/textDialog_socaudung"
@@ -48,8 +49,8 @@
 
         <Button
             android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:text="OK"
+            android:layout_height="50dp"
+            android:text="@string/ok"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textColor="#fff"
