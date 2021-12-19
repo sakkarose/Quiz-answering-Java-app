@@ -14,6 +14,7 @@
         android:layout_width="63dp"
         android:layout_height="42dp"
         android:onClick="Back2MainActivity"
+        android:clickable="true"
         android:background="@drawable/back" />
 
     <RelativeLayout

@@ -64,7 +64,7 @@ public class AddQuestionActivity extends AppCompatActivity
     public void Back2MainActivity(View v)
     {
         ActivityAnimation a = new ActivityAnimation();
-        a.unzoomAnimation(AddQuestionActivity.this);
+        a.fadeAnimation(AddQuestionActivity.this);
     }
 
     //OnClick của nút Add Question
