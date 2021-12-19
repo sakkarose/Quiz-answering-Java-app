@@ -1,5 +1,6 @@
 package sakkarose.androidgame.AiLaTrieuPhu;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -17,8 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import sakkarose.androidgame.AiLaTrieuPhu.Adapter.ActivityAnimation;
-import sakkarose.androidgame.AiLaTrieuPhu.Model.Question;
 import sakkarose.androidgame.AiLaTrieuPhu.Handler.Database;
+import sakkarose.androidgame.AiLaTrieuPhu.Model.Question;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,49 +28,35 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView ivstop;
 
-
-
-
     private static CDRunnable CDRun;
     private static Handler CDHandler;
     boolean isRunning = false;
 
     Database appDatabase;
 
-    //Dialog dg, dg1;
-    //Unused due to using final only
-
-    //Thanh bên cạnh để hiện vị trí và tiền thưởng
-    //DrawerLayout drawerLayout;
-    //NavigationView navi;
-    //String indicator;
-    //AVLoadingIndicatorView avi;
-
     int socauhientai = 0, time = 30, trueCase, idTC;
 
-
     int socaudung = socauhientai - 1;
-    //int socauDung = 0;
 
     ArrayList<Question> questionList;
 
 
-    private void findViewsByIds() {
-        tvcontentquestion = (TextView) findViewById(R.id.tv_content_question);
-        tvquestion = (TextView) findViewById(R.id.tv_question);
+    private void findViewsByIds()
+    {
+        //TextView
+        tvcontentquestion = findViewById(R.id.tv_content_question);
+        tvquestion = findViewById(R.id.tv_question);
+        tvanswerA = findViewById(R.id.tv_answer1);
+        tvanswerB = findViewById(R.id.tv_answer2);
+        tvanswerC = findViewById(R.id.tv_answer3);
+        tvanswerD = findViewById(R.id.tv_answer4);
+        tvtime = findViewById(R.id.tv_time);
 
-        tvanswerA = (TextView) findViewById(R.id.tv_answer1);
-        tvanswerB = (TextView) findViewById(R.id.tv_answer2);
-        tvanswerC = (TextView) findViewById(R.id.tv_answer3);
-        tvanswerD = (TextView) findViewById(R.id.tv_answer4);
-
-        tvtime = (TextView) findViewById(R.id.tv_time);
-
-        ivstop = (ImageView) findViewById(R.id.iv_stop);
-
-
+        //ImageView
+        ivstop = findViewById(R.id.iv_stop);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,11 +70,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewsByIds();
 
-        questionList = new ArrayList<Question>();
+        questionList = new ArrayList<>();
         try {
             appDatabase = new Database(this);
             questionList = appDatabase.getData();
         } catch (IOException e) {
+            e.printStackTrace();
         }
 
         tvanswerA.setOnClickListener(this);
@@ -95,8 +83,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         tvanswerC.setOnClickListener(this);
         tvanswerD.setOnClickListener(this);
         ivstop.setOnClickListener(this);
-
-
 
         CDHandler = new Handler();
         CDRun = new CDRunnable();
@@ -108,45 +94,38 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
         dg.setContentView(R.layout.dialog_ready);
 
-        TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-        tv.setText("Bạn đã sẵn sàng chưa ?");
+        TextView tv = dg.findViewById(R.id.textDialog);
+        tv.setText(R.string.ban_san_sang);
         dg.show();
 
-        final Button btnDongY = (Button) dg.findViewById(R.id.btn_dongy);
-        final Button btnHuy = (Button) dg.findViewById(R.id.btn_huy);
+        final Button btnDongY = dg.findViewById(R.id.btn_dongy);
+        final Button btnHuy = dg.findViewById(R.id.btn_huy);
 
-        btnDongY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    dg.dismiss();
-                    socauhientai++;
-                    playbgm(R.raw.start);
-                    Thread.sleep(2000);
+        btnDongY.setOnClickListener(v -> {
+            try {
+                dg.dismiss();
+                socauhientai++;
+                playbgm(R.raw.start);
+                Thread.sleep(2000);
 
-                    tvquestion.setText(String.valueOf(socauhientai));
-                    tvcontentquestion.setText(questionList.get(socauhientai - 1).Question);
-                    tvanswerA.setText(questionList.get(socauhientai - 1).CaseA);
-                    tvanswerB.setText(questionList.get(socauhientai - 1).CaseB);
-                    tvanswerC.setText(questionList.get(socauhientai - 1).CaseC);
-                    tvanswerD.setText(questionList.get(socauhientai - 1).CaseD);
-                    tvtime.setText(time + "");
-                    time();
-                    playbgm_loop(R.raw.first_five_questions);
-                    trueCase();
+                tvquestion.setText(String.valueOf(socauhientai));
+                tvcontentquestion.setText(questionList.get(socauhientai - 1).Question);
+                tvanswerA.setText(questionList.get(socauhientai - 1).CaseA);
+                tvanswerB.setText(questionList.get(socauhientai - 1).CaseB);
+                tvanswerC.setText(questionList.get(socauhientai - 1).CaseC);
+                tvanswerD.setText(questionList.get(socauhientai - 1).CaseD);
+                tvtime.setText(time + "");
+                time();
+                playbgm_loop(R.raw.first_five_questions);
+                trueCase();
 
 
-                } catch (Exception e) {
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goMainAct();
-            }
-        });
+        btnHuy.setOnClickListener(v -> goMainAct());
     }
 
     @Override
@@ -163,124 +142,115 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             //Đã chọn đáp án
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(v.getId() == trueCase)
+            new Handler().postDelayed(() -> {
+                if(v.getId() == trueCase)
+                {
+                    switch (trueCase)
                     {
-                        switch (trueCase)
-                        {
-                            case R.id.tv_answer1:
-                                playbgm(R.raw.true_answer_a);
-                                tvanswerA.setBackgroundResource(R.drawable.bg_green_corner_30);
-                                break;
-                            case R.id.tv_answer2:
-                                playbgm(R.raw.true_answer_b);
-                                tvanswerB.setBackgroundResource(R.drawable.bg_green_corner_30);
-                                break;
-                            case R.id.tv_answer3:
-                                playbgm(R.raw.true_answer_c);
-                                tvanswerC.setBackgroundResource(R.drawable.bg_green_corner_30);
-                                break;
-                            case R.id.tv_answer4:
-                                playbgm(R.raw.true_answer_d);
-                                tvanswerD.setBackgroundResource(R.drawable.bg_green_corner_30);
-                                break;
-                        }
-                        socauhientai++;
-                        if(socauhientai < 16)
-                        {
-                            showQuestion();
-                        }
-
-                        if(socauhientai == 16)
-                        {
-                            mp.stop();
-                            try{
-                                Thread.sleep(2000);
-
-                                final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
-                                dg.setContentView(R.layout.dialog_finish);
-                                dg.setTitle("!!! Chúc mừng !!!");
-                                dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
-
-                                TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-                                TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
-                                tv.setText("Bạn đã trở thành ai là triệu phú");
-                                tv_scd.setText("16");
-                                dg.setCancelable(false);
-
-                                dg.show();
-
-                                Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
-                                btn_ok.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        dg.dismiss();
-                                        goMainAct();
-                                    }
-                                });
-
-                                resetTV();
-
-                            } catch (InterruptedException e)
-                            {
-                                e.printStackTrace();
-                            }
-                        }
+                        case R.id.tv_answer1:
+                            playbgm(R.raw.true_answer_a);
+                            tvanswerA.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            break;
+                        case R.id.tv_answer2:
+                            playbgm(R.raw.true_answer_b);
+                            tvanswerB.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            break;
+                        case R.id.tv_answer3:
+                            playbgm(R.raw.true_answer_c);
+                            tvanswerC.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            break;
+                        case R.id.tv_answer4:
+                            playbgm(R.raw.true_answer_d);
+                            tvanswerD.setBackgroundResource(R.drawable.bg_green_corner_30);
+                            break;
+                    }
+                    socauhientai++;
+                    if(socauhientai < 16)
+                    {
+                        showQuestion();
                     }
 
-                    //Chọn sai đáp án
-                    else {
+                    if(socauhientai == 16)
+                    {
                         mp.stop();
-                        switch (trueCase)
-                        {
-                            case R.id.tv_answer1:
-                                playbgm(R.raw.lose_answer_a);
-                                wrongCaseAnim(tvanswerA);
-                                break;
-                            case R.id.tv_answer2:
-                                playbgm(R.raw.lose_answer_b);
-                                wrongCaseAnim(tvanswerB);
-                                break;
-                            case R.id.tv_answer3:
-                                playbgm(R.raw.lose_answer_c);
-                                wrongCaseAnim(tvanswerC);
-                                break;
-                            case R.id.tv_answer4:
-                                playbgm(R.raw.lose_answer_d);
-                                wrongCaseAnim(tvanswerD);
-                                break;
-                        }
                         try{
                             Thread.sleep(2000);
+
                             final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
                             dg.setContentView(R.layout.dialog_finish);
-                            dg.setTitle("Thật tiếc !!!");
+                            dg.setTitle("!!! Chúc mừng !!!");
                             dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
 
-                            TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-                            TextView tv_scd = (TextView) dg.findViewById(R.id.textDialog_socaudung);
-                            tv.setText("Bạn đã thua.");
-                            tv_scd.setText(String.valueOf(socaudung));
+                            TextView tv = dg.findViewById(R.id.textDialog);
+                            TextView tv_scd = dg.findViewById(R.id.textDialog_socaudung);
+                            tv.setText(R.string.thang_cuoc);
+                            tv_scd.setText(String.valueOf(16));
                             dg.setCancelable(false);
 
                             dg.show();
 
-                            Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
-                            btn_ok.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dg.dismiss();
-                                    goMainAct();
-                                }
+                            Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
+                            btn_ok.setOnClickListener(v1 -> {
+                                dg.dismiss();
+                                goMainAct();
                             });
 
-                            //resetTV();
+                            resetTV();
+
                         } catch (InterruptedException e)
                         {
                             e.printStackTrace();
                         }
+                    }
+                }
+
+                //Chọn sai đáp án
+                else {
+                    mp.stop();
+                    switch (trueCase)
+                    {
+                        case R.id.tv_answer1:
+                            playbgm(R.raw.lose_answer_a);
+                            wrongCaseAnim(tvanswerA);
+                            break;
+                        case R.id.tv_answer2:
+                            playbgm(R.raw.lose_answer_b);
+                            wrongCaseAnim(tvanswerB);
+                            break;
+                        case R.id.tv_answer3:
+                            playbgm(R.raw.lose_answer_c);
+                            wrongCaseAnim(tvanswerC);
+                            break;
+                        case R.id.tv_answer4:
+                            playbgm(R.raw.lose_answer_d);
+                            wrongCaseAnim(tvanswerD);
+                            break;
+                    }
+                    try{
+                        Thread.sleep(2000);
+                        final Dialog dg = new Dialog(GameActivity.this, R.style.custom_dialog);
+                        dg.setContentView(R.layout.dialog_finish);
+                        dg.setTitle(R.string.that_tiec);
+                        dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
+
+                        TextView tv = dg.findViewById(R.id.textDialog);
+                        TextView tv_scd = dg.findViewById(R.id.textDialog_socaudung);
+                        tv.setText(R.string.ban_da_thua2);
+                        tv_scd.setText(String.valueOf(socaudung));
+                        dg.setCancelable(false);
+
+                        dg.show();
+
+                        Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
+                        btn_ok.setOnClickListener(v12 -> {
+                            dg.dismiss();
+                            goMainAct();
+                        });
+
+                        //resetTV();
+                    } catch (InterruptedException e)
+                    {
+                        e.printStackTrace();
                     }
                 }
             }, 4000);
@@ -307,6 +277,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @SuppressLint("SetTextI18n")
     public void showQuestion()
     {
         trueCase();
@@ -369,6 +340,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void handlerCD()
     {
         time--;
@@ -406,22 +378,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 dg.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dg.setContentView(R.layout.dialog_finish);
 
-                TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-                TextView tv_caudung = (TextView) dg.findViewById(R.id.textDialog_sc);
-                tv.setText("Khá đáng tiếc ! Bạn đã thua.");
+                TextView tv = dg.findViewById(R.id.textDialog);
+                TextView tv_caudung = dg.findViewById(R.id.textDialog_sc);
+                tv.setText(R.string.ban_da_thua);
                 tv_caudung.setText(String.valueOf(socaudung));
                 dg.setCancelable(true);
                 dg.show();
 
-                Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
-                btn_ok.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        dg.dismiss();
-                        goMainAct();
-                    }
+                Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
+                btn_ok.setOnClickListener(v -> {
+                    dg.dismiss();
+                    goMainAct();
                 });
                 tvquestion.setText("");
                 tvanswerA.setText("");
@@ -468,21 +435,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             dg.setTitle("Thông báo !");
             dg.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
 
-            TextView tv = (TextView) dg.findViewById(R.id.textDialog);
-            TextView tv_socaudung = (TextView) dg.findViewById(R.id.textDialog_socaudung);
+            TextView tv = dg.findViewById(R.id.textDialog);
+            TextView tv_socaudung = dg.findViewById(R.id.textDialog_socaudung);
 
-            tv.setText("Bạn đã dừng cuộc chơi ! Cảm ơn bạn đã tham gia.");
+            tv.setText(R.string.dung_cuoc_choi);
             tv_socaudung.setText(String.valueOf(socaudung));
             dg.setCancelable(false);
             dg.show();
 
-            Button btn_ok = (Button) dg.findViewById(R.id.btn_ok_finish);
-            btn_ok.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dg.dismiss();
-                    goMainAct();
-                }
+            Button btn_ok = dg.findViewById(R.id.btn_ok_finish);
+            btn_ok.setOnClickListener(v -> {
+                dg.dismiss();
+                goMainAct();
             });
 
         } catch (InterruptedException e) {
@@ -508,7 +472,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         try {
             ActivityAnimation anim = new ActivityAnimation();
             anim.unzoomAnimation(GameActivity.this);
-        }catch (Exception e){}
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

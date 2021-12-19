@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -24,12 +23,13 @@ public class MainActivity extends AppCompatActivity
 
     private void findViewsByIds()
     {
+        //Button
+        btnbatdau = findViewById(R.id.btn_batdau);
+        btnthemcauhoi = findViewById(R.id.btn_themcauhoi);
+        btnthoat = findViewById(R.id.btn_thoat);
 
-        btnbatdau = (Button) findViewById(R.id.btn_batdau);
-        btnhuongdan = (ImageButton) findViewById(R.id.btn_huongdan);
-        btnthemcauhoi = (Button) findViewById(R.id.btn_themcauhoi);
-        btnthoat = (Button) findViewById(R.id.btn_thoat);
-
+        //ImageButton
+        btnhuongdan = findViewById(R.id.btn_huongdan);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
 
-        //set layout full man hinh vi khac nhau dpi giua cac may
+        //Set full màn hình máy ảo
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -45,63 +45,58 @@ public class MainActivity extends AppCompatActivity
         findViewsByIds();
         playbgm(R.raw.main_theme);
 
-        btnbatdau.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp.stop();
-                Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(intent);
-                try
-                {
-                    ActivityAnimation a = new ActivityAnimation();
-                    a.unzoomAnimation(MainActivity.this);
-                }
-                catch (Exception e) {
-                }
+        //Activity game
+        btnbatdau.setOnClickListener(view -> {
+            mp.stop();
+            Intent intent = new Intent(MainActivity.this, GameActivity.class);
+            startActivity(intent);
+            try
+            {
+                ActivityAnimation a = new ActivityAnimation();
+                a.unzoomAnimation(MainActivity.this);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
-        btnhuongdan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Dialog dialog = new Dialog(MainActivity.this, R.style.custom_dialog);
+        //Dialog luật game
+        btnhuongdan.setOnClickListener(view -> {
+            final Dialog dialog = new Dialog(MainActivity.this, R.style.custom_dialog);
 
-                dialog.setContentView(R.layout.dialog_intro);
-                dialog.setTitle("Hướng dẫn");
-                dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
-                TextView text = (TextView) dialog.findViewById(R.id.tv_intro);
-                text.setText(R.string.bat_dau);
-                dialog.show();
+            dialog.setContentView(R.layout.dialog_intro);
+            dialog.setTitle("Hướng dẫn");
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_box);
+            TextView text = dialog.findViewById(R.id.tv_intro);
+            text.setText(R.string.bat_dau);
+            dialog.show();
+        });
+
+        //Activity thêm câu hỏi
+        btnthemcauhoi.setOnClickListener(v -> {
+            mp.stop();
+            Intent intent = new Intent(MainActivity.this, AddQuestionActivity.class);
+            startActivity(intent);
+
+            try
+            {
+                ActivityAnimation a = new ActivityAnimation();
+                a.unzoomAnimation(MainActivity.this);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
-        btnthemcauhoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mp.stop();
-                Intent intent = new Intent(MainActivity.this, AddQuestionActivity.class);
-                startActivity(intent);
-
-                try
-                {
-                    ActivityAnimation a = new ActivityAnimation();
-                    a.unzoomAnimation(MainActivity.this);
-                }
-                catch (Exception e) {
-                }
-            }
-        });
-
-        btnthoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(1);
-            }
+        //Thoát game
+        btnthoat.setOnClickListener(v -> {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
         });
 
     }
 
+    //Phát nhạc
     public void playbgm(int type)
     {
         mp = MediaPlayer.create(this,type);

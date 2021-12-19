@@ -14,5 +14,10 @@
     <string name="huongdan">Mỗi câu hỏi bạn có 30 giây để trả lời và sẽ có 3 mốc rất quan trọng là 5, 10 và 15 đầu tiên chúng ta phải vượt qua.</string>
     <string name="huongdan1">Nếu bạn hoàn thành 16 câu hỏi, bạn sẽ là người thắng cuộc !</string>
     <string name="dap_an">Đáp án : </string>
-
+    <string name="dung_cuoc_choi">Bạn đã dừng cuộc chơi ! Cảm ơn bạn đã tham gia.</string>
+    <string name="ban_da_thua">Khá đáng tiếc ! Bạn đã thua.</string>
+    <string name="ban_san_sang">Bạn đã sẵn sàng chưa ?</string>
+    <string name="thang_cuoc">Bạn đã trở thành ai là triệu phú</string>
+    <string name="ban_da_thua2">Bạn đã thua.</string>
+    <string name="that_tiec">Thật tiếc !!!</string>
 </resources>
