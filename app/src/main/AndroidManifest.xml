@@ -18,6 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="sakkarose.androidgame.AiLaTrieuPhu.GameActivity"/>
+        <activity
+            android:name="sakkarose.androidgame.AiLaTrieuPhu.AddQuestionActivity"/>
     </application>
 
 </manifest>

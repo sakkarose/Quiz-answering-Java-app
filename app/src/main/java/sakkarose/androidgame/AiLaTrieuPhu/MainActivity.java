@@ -10,11 +10,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import sakkarose.androidgame.AiLaTrieuPhu.Adapter.ActivityAnimation;
-import sakkarose.androidgame.AiLaTrieuPhu.R;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -43,8 +41,8 @@ public class MainActivity extends AppCompatActivity
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        findViewsByIds();
         setContentView(R.layout.activity_main);
+        findViewsByIds();
         playbgm(R.raw.main_theme);
 
         btnbatdau.setOnClickListener(new View.OnClickListener() {

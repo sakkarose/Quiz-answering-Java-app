@@ -13,5 +13,6 @@
     <string name="finish_game">Bạn đã trở thành ai là triệu phú</string>
     <string name="huongdan">Mỗi câu hỏi bạn có 30 giây để trả lời và sẽ có 3 mốc rất quan trọng là 5, 10 và 15 đầu tiên chúng ta phải vượt qua.</string>
     <string name="huongdan1">Nếu bạn hoàn thành 16 câu hỏi, bạn sẽ là người thắng cuộc !</string>
+    <string name="dap_an">Đáp án : </string>
 
 </resources>

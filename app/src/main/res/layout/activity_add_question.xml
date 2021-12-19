@@ -7,15 +7,14 @@
     android:gravity="center"
     android:padding="16dp"
     android:background="@drawable/background1"
-    tools:context="sakkarose.androidgame.AiLaTrieuPhu.MainActivity">
+    tools:context="sakkarose.androidgame.AiLaTrieuPhu.AddQuestionActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ten_app"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="@dimen/text_side_large"
-        android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/ibtn_back"
+        android:layout_width="63dp"
+        android:layout_height="42dp"
+        android:onClick="Back2MainActivity"
+        android:background="@drawable/back" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -85,8 +84,26 @@
         android:paddingBottom="@dimen/padding_updown_small"
         android:background="@drawable/bg_blue_corner_30" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/dap_an"
+        android:textColor="@color/white"
+        android:layout_gravity="left"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/et_truecase"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"/>
+
     <Button
         android:id="@+id/btn_submit"
+        android:onClick="addquestion"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

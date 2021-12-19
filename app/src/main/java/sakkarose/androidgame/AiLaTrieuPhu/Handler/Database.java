@@ -34,7 +34,7 @@ public class Database extends SQLiteOpenHelper
     public static final String TABLE_CASE_D = "CaseD";
     public static final String TABLE_TRUE_CASE = "TrueCase";
 
-    private static String DB_NAME = "QuestionDB.sqlite";
+    private static String DB_NAME = "Question.sqlite";
     public SQLiteDatabase appDatabase;
     private String DB_PATH = "data/data/sakkarose.androidgame.AiLaTrieuPhu/databases/";
 
@@ -93,7 +93,7 @@ public class Database extends SQLiteOpenHelper
         } else
             {
             appDatabase = this.getReadableDatabase();
-            appDatabase .close();
+            appDatabase.close();
             try
             {
                 copydatabase();
