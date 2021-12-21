@@ -72,7 +72,7 @@ public class AddQuestionActivity extends AppCompatActivity
     public void addquestion(View view)
     {
         String qs, ca, cb, cc, cd, temp;
-        int tc = 0, id = 0;
+        int tc = 0, id = 1;
 
         qs = etquestion.getText().toString();
         ca = etanswerA.getText().toString();
