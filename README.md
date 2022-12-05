@@ -1,4 +1,4 @@
-# Ai_La_Trieu_Phu
+# Quiz_Answering_Java_App
 
 Just a small project, still on development and for studying purposes.
 
